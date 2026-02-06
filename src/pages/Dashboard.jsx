@@ -45,10 +45,14 @@ const Dashboard = ({ setTitle }) => {
     try {
       setLoading(true);
       const userPlants = await getPlants();
-      setPlants(userPlants || []);
+      
+      // Only update if we actually get data back from a server
+      if (userPlants && userPlants.length > 0) {
+        setPlants(userPlants);
+      }
     } catch (error) {
-      console.error("Failed to fetch plants:", error);
-      setPlants([]);
+    console.error("Failed to fetch plants, keeping defaults:", error);
+    // We don't call setPlants([]) here because we want to keep the defaults!
     } finally {
       setLoading(false);
     }
