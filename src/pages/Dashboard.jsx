@@ -14,19 +14,23 @@ const Dashboard = ({ setTitle }) => {
   const [plants, setPlants] = useState([
   { 
     _id: 'default-1', 
-    name: "Lettuce (Hydro)", 
-    variety: "Romaine", 
-    ph: 6.2, 
+    name: "Basil (Hydro)", 
+    type: "Herb",
+    createdAt: new Date().toISOString(),
+    image: "https://images.unsplash.com/photo-1618375531912-97cc5858f9c3?auto=format&fit=crop&q=80&w=400",
+    ph: 6.0, 
     temperature: 24, 
     status: "Healthy" 
   },
   { 
     _id: 'default-2', 
-    name: "Basil (Hydro)", 
-    variety: "Genovese", 
-    ph: 5.8, 
-    temperature: 26, 
-    status: "Warning: Low pH" 
+    name: "Lettuce (Hydro)", 
+    type: "Leafy Green",
+    createdAt: new Date().toISOString(),
+    image: "https://images.unsplash.com/photo-1622114842114-95990021463e?auto=format&fit=crop&q=80&w=400",
+    ph: 6.5, 
+    temperature: 22, 
+    status: "Healthy" 
   }
 ]);
   const [loading, setLoading] = useState(true);
