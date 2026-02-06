@@ -14,18 +14,18 @@ const Dashboard = ({ setTitle }) => {
   const [plants, setPlants] = useState([
   { 
     _id: 'default-1', 
-    name: "Basil (Hydro)", 
+    name: "Basil", 
     type: "Herb",
-    plantingDate: "2026-02-01T00:00:00.000Z", // Fixed: Matches formatDate(plant.plantingDate)
-    image: "https://images.unsplash.com/photo-1618375531912-97cc5858f9c3?auto=format&fit=crop&q=80&w=600",
+    plantingDate: "2026-01-07T00:00:00.000Z", // Fixed: Matches formatDate(plant.plantingDate)
+    image: "http://images.unsplash.com/photo-1618375531912-97cc5858f9c3?auto=format&fit=crop&q=80&w=600",
     status: "Healthy" 
   },
   { 
     _id: 'default-2', 
-    name: "Lettuce (Hydro)", 
+    name: "Lettuce", 
     type: "Leafy Green",
-    plantingDate: "2026-02-03T00:00:00.000Z", // Fixed: Matches formatDate(plant.plantingDate)
-    image: "https://images.unsplash.com/photo-1622114842114-95990021463e?auto=format&fit=crop&q=80&w=600",
+    plantingDate: "2025-12-03T00:00:00.000Z", // Fixed: Matches formatDate(plant.plantingDate)
+    image: "http://images.unsplash.com/photo-1622114842114-95990021463e?auto=format&fit=crop&q=80&w=600",
     status: "Healthy" 
   }
 ]);
