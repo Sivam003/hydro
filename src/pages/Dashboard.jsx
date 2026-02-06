@@ -16,20 +16,16 @@ const Dashboard = ({ setTitle }) => {
     _id: 'default-1', 
     name: "Basil (Hydro)", 
     type: "Herb",
-    createdAt: new Date().toISOString(),
-    image: "https://images.unsplash.com/photo-1618375531912-97cc5858f9c3?auto=format&fit=crop&q=80&w=400",
-    ph: 6.0, 
-    temperature: 24, 
+    plantingDate: "2026-02-01T00:00:00.000Z", // Fixed: Matches formatDate(plant.plantingDate)
+    image: "https://images.unsplash.com/photo-1618375531912-97cc5858f9c3?auto=format&fit=crop&q=80&w=600",
     status: "Healthy" 
   },
   { 
     _id: 'default-2', 
     name: "Lettuce (Hydro)", 
     type: "Leafy Green",
-    createdAt: new Date().toISOString(),
-    image: "https://images.unsplash.com/photo-1622114842114-95990021463e?auto=format&fit=crop&q=80&w=400",
-    ph: 6.5, 
-    temperature: 22, 
+    plantingDate: "2026-02-03T00:00:00.000Z", // Fixed: Matches formatDate(plant.plantingDate)
+    image: "https://images.unsplash.com/photo-1622114842114-95990021463e?auto=format&fit=crop&q=80&w=600",
     status: "Healthy" 
   }
 ]);
