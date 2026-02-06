@@ -1,0 +1,65 @@
+import React, { useState } from 'react';
+import { useAuth } from '@/context/AuthContext';
+import { Link } from 'react-router-dom';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+
+const Register = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [error, setError] = useState('');
+  const { register, loading } = useAuth(); // Get the register function from context
+
+  const onChange = (e) => setFormData({ ...formData, [e.target.id]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    try {
+      // Call the register function from context
+      await register(formData.name, formData.email, formData.password);
+      // The context will handle navigation to '/' on success
+    } catch (err) {
+      setError(err.response?.data?.msg || 'Registration failed. Please try again.');
+    }
+  };
+  
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-muted/40">
+      <Card className="w-full max-w-md">
+        <CardHeader className="text-center">
+          <CardTitle className="text-2xl">Create an Account</CardTitle>
+          <CardDescription>Enter your details to register.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          {error && <p className="mb-4 text-center text-red-500 bg-red-100 p-2 rounded-md">{error}</p>}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-1">
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" type="text" value={formData.name} onChange={onChange} required />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" type="email" value={formData.email} onChange={onChange} required />
+            </div>
+            <div className="space-y-1">
+              <Label htmlFor="password">Password</Label>
+              <Input id="password" type="password" value={formData.password} onChange={onChange} required />
+            </div>
+            <Button type="submit" className="w-full" disabled={loading}>
+              {loading ? 'Registering...' : 'Register'}
+            </Button>
+          </form>
+          <div className="mt-4 text-center text-sm">
+            Already have an account?{' '}
+            <Link to="/login" className="underline">
+              Log in
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+export default Register;
