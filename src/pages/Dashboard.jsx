@@ -11,7 +11,24 @@ import { motion } from 'framer-motion';
 import { useToast } from "@/components/ui/use-toast"; // Import useToast
 
 const Dashboard = ({ setTitle }) => {
-  const [plants, setPlants] = useState([]);
+  const [plants, setPlants] = useState([
+  { 
+    _id: 'default-1', 
+    name: "Lettuce (Hydro)", 
+    variety: "Romaine", 
+    ph: 6.2, 
+    temperature: 24, 
+    status: "Healthy" 
+  },
+  { 
+    _id: 'default-2', 
+    name: "Basil (Hydro)", 
+    variety: "Genovese", 
+    ph: 5.8, 
+    temperature: 26, 
+    status: "Warning: Low pH" 
+  }
+]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const { toast } = useToast(); // Initialize toast
