@@ -108,10 +108,8 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route
                 path="/*"
-                element={
-                  <ProtectedRoute>
-                    <AppContent />
-                  </ProtectedRoute>
+                element={                  
+                  <AppContent />                  
                 }
               />
             </Routes>
